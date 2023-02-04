@@ -30,7 +30,7 @@ function ServicesPage() {
                 <h2 className="title">Nuestras categorías</h2>
                 <div className="line"></div>
             </div>
-           
+            <div>
                 <section className="categories-card">
                     <div className="categorie slider" style={{ transform: `translateX(-${currentIndex * 400}px)` }}>
                         {
@@ -49,8 +49,7 @@ function ServicesPage() {
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </section>
-                
-            
+            </div>
         </div>
     )
 }

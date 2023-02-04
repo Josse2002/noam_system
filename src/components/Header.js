@@ -1,41 +1,46 @@
 import logo_noam from '../images/logo_noam.png';
-import brand from '../images/brand.jpg'
-import { Link,BrowserRouter} from "react-router-dom";
 
-function Header(){
-    return(
-        <BrowserRouter>    
-        
-                <div>
-                    <div className="headerL">
-                        <div className="image">
-                            <img src={logo_noam} alt="Noam Gemstone Logo" />
-                        </div>
-                        <div className="options">
-                                <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
-                        </div>
-                    </div>
-                    <div className="categories">
-                        <div className='categories-options'>
-                            <Link to="/collares">Collares</Link>
-                        </div>
-                    </div>
+import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { getFirestore } from 'firebase/firestore/lite';
+import { getCategories } from "../services/getCategories";
+import fire from "../firebase/config";
 
-                    <div className='image-brand' style={{
-                        backgroundImage: `url(${brand})`,
-                    }}>
-                        <div className='text-brand'>
-                            <h2>Pulseras para chica</h2>
-                            <p>Pulseras de moda para chica</p>
-                            <div className='button-comprar'>
-                                <a href='#'>Ver producto</a>
-                            </div>
-                        </div>
-                    </div>
+function Header() {
 
+    const db = getFirestore(fire); // <-- Esta es la instancia de la base de datos
+    const [categories, setCategories] = useState([]); // <-- Estado que almacene los productos
+
+    useEffect(() => {
+
+        getCategories(db, setCategories) // <-- Se manda el estado y la instancia de la base de datos
+
+    }, []);
+
+
+    return (
+
+        <div>
+            <div className="headerL">
+                <div className="image">
+                    <img src={logo_noam} alt="Noam Gemstone Logo" />
                 </div>
-        </BrowserRouter>
-    
+                <div className="options">
+                    <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+                </div>
+            </div>
+            <div className="categories">
+                <div className='categories-options'>
+                    {
+                        categories.map((categorie, index) => (
+                            <Link id={index} to={`/${categorie.nombre}`}>{categorie.nombre}</Link>
+                           
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
     )
 }
 export default Header;
