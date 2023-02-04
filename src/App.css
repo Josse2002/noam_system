@@ -1,38 +1,247 @@
-.App {
-  text-align: center;
+/* Path: noam_gemstone\src\App.css */
+/* Author: Josse */
+/* Date: 2020-10-05 11:00:00 */
+/* Description: Noam Gemstone */
+
+/*-----------------------Estilos del header-------------------------*/
+.headerL {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  margin: 1% 8.3%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bdaa8b;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.headerL .image {
+  width: 120px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headerL .image img {
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerL .options a {
+  text-decoration: none;
+  color: #b88e4a;
+  margin: 0 1em;
+}
+
+.headerL .options a i {
+  font-size: 22px;
+}
+
+.categories {
+  width: 70%;
+  margin: 0% 15%;
+}
+
+.categories-options {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.categories-options a {
+  text-decoration: none;
+  color: #b88e4a;
+  margin: 0 1em;
+}
+
+.image-brand {
+  width: 100%;
+  margin-top: 20px;
+  height: 400px;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.text-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 13%;
+  color: #333333;
+}
+
+.text-brand h2 {
+  font-size: 40px;
+  line-height: 0px;
+}
+
+.text-brand p {
+  font-size: 20px;
+  line-height: 0px;
+}
+
+.button-comprar {
+  margin-top: 25px;
+}
+
+.text-brand .button-comprar a {
+  text-decoration: none;
+  background: #b4986b;
+  padding: 10px 15px;
+  color: #1a1a1a;
+  font-weight: bold;
+  border-radius: 20px;
+
+}
+
+.text-brand .button-comprar a:hover {
+  background: #be9f6c;
+  transition: 0.5s;
+}
+
+/*-----------------------Estilos de Featured Products-------------------------*/
+.featured {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.title {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+  line-height: 10px;
+  color: #b88e4a;
+  line-height: 0;
+
+}
+
+
+.text-center {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.line {
+  width: 50px;
+  height: 2px;
+  background-color: #b88e4a;
+  margin-left: calc(50% - 25px);
+  margin-bottom: 20px;
+}
+
+/*Carrusel de productos */
+.container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease;
+  margin-left: 42px;
+}
+
+.card {
+  width: 300px;
+  min-width: 300px;
+  margin: 0px 51px;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+.card h2 {
+  font-size: 18px;
+}
+
+.card p.description {
+  font-size: 14px;
+  color: #333333;
+  height: 70px;
+  
+}
+
+.card p.price {
+  font-size: 16px;
+  color: #b88e4a;
+  font-weight: bold;
+}
+
+
+.prevBtn,
+.nextBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  position: absolute;
+  top: calc(50% - 25px);
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  transition: background-color 0.5s ease;
+  font-size: 20px;
+}
+
+.prevBtn {
+  left: 20px;
+}
+
+.nextBtn {
+  right: 20px;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  background-color: lightgray;
+}
+
+.container button,
+.container button:hover {
+  background: none;
+  border: none;
+}
+/*CATEGORIAS*/
+.card-category{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+}
+.categories-card{
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: 3% 0%;
+}
+.categories-card h2{
   color: white;
+  text-shadow: 2px 2px 4px #000000c7;
 }
-
-.App-link {
-  color: #61dafb;
+.categorie{
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease;
+  margin-left: 42px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.categories-card button{
+  background: none;
+  border: none;
 }
