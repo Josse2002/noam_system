@@ -1,19 +1,20 @@
 function servicesSection(){
 
     return(
-        <div className="services-section">
+        <div className="services-section" >
            <div className="text-center">
                 <h2 className="title">Servicios</h2>
                 <div className="line"></div>
+                <div class="subtitle-text">
+                            <h3 class="caption gray">Ofrecemos una variedad de servicios convenientes en línea, incluyendo pagos seguros, entregas a domicilio y mucho más para hacer de su experiencia con nosotros lo más fácil y satisfactoria posible</h3>
+                        </div>
             </div>
            
            
-            <section id="services" class="services content-section">
+            <section id="services" class="services content-section" >
                 <div class="container">
                     <div class="row text-center">
-                        <div class="col-md-12">
-                            <h3 class="caption gray">Ofrecemos una variedad de servicios convenientes en línea, incluyendo pagos seguros, entregas a domicilio y mucho más para hacer de su experiencia con nosotros lo más fácil y satisfactoria posible</h3>
-                        </div>
+                       
 
 
                         {/*Servicio pago en linea*/}
