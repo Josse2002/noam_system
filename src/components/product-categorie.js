@@ -18,8 +18,9 @@ function Productcategorie({ categoria }) {
         <div className='product-show'>
             {
                 products.map((product, index) => (
+                    
 
-                    <div className="card" key={index}>
+                    <div className="card card-product-categorie" key={index}>
                         <img src={product.imageURL} alt={product.Nombre} />
 
                         <h2>{product.Nombre}</h2>
