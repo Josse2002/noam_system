@@ -17,17 +17,17 @@ function Productcategorie({ categoria }) {
     return (
         <div className='product-show'>
             {
-                products.map((product, index) => (
-                    
-
-                    <div className="card card-product-categorie" key={index}>
-                        <img src={product.imageURL} alt={product.Nombre} />
-
-                        <h2>{product.Nombre}</h2>
-                        <p className="description">{product.Descripcion}</p>
-                        <p className="price">${product.Precio}</p>
-                    </div>
-                ))}
+                products
+                .filter(product => product.Categoria === categoria)
+                .map((product, index) => (
+                  <div className="card card-product-categorie" key={index}>
+                    <img src={product.imageURL} alt={product.Nombre} />
+                    <h2>{product.Nombre}</h2>
+                    <p className="description">{product.Descripcion}</p>
+                    <p className="price">${product.Precio}</p>
+                  </div>
+                ))
+            }
         </div>
     );
 }
