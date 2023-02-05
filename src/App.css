@@ -390,26 +390,30 @@
   --primary-line-color: #ccc;
 }
 footer {
-  background: rgb(55,55,55);
+  background: #af9c82;
   margin-top: auto;
   width: 100%
+
 }
-.footer-list-top {
-  width: 33.333%
+.footer-social-overlap a {
+  color: #bf8c46!important;
 }
 .footer-list-top > li {
   text-align: center;
-  padding-bottom: 10px
+  padding-bottom: -8px
     
 }
 .footer-list-header {
   padding: 10px 0 5px 0;
   color: #fff;
-  font: 2.3vw "Oswald", sans-serif
+  font: 1.8vw "Oswald", sans-serif
 }
 .footer-list-anchor {
-  font: 1.3em "Open Sans", sans-serif
+  font: 1.3em "Open Sans", sans-serif;
+  color: black;
+  text-decoration: none;
 }
+
 .footer-social-section {
   width: 100%;
   align-items: center;
@@ -429,7 +433,6 @@ footer {
 .footer-social-overlap {
   position: relative;
   z-index: 2;
-  background: rgb(55,55,55);
   padding: 0 20px
 }
 .footer-social-connect {
@@ -571,11 +574,32 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   flex-wrap: wrap;
 }
 .card-product-categorie{
   margin: 5px 51px;
 }
+.categorie-banner h2{
+  font-size: 60px;
+}
+ol, ul{
+  list-style: none;
+}
+.footer-list-top{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-start;
+  text-align: left;
+}
 /*hola mundo*/
-
+a{
+  text-decoration: none;
+}
+ul.footer-list-top a {
+  color: black;
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: none;
+}
