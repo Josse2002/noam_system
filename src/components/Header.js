@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { getFirestore } from 'firebase/firestore/lite';
 import { getCategories } from "../services/getCategories";
 import fire from "../firebase/config";
+import { Link as Linked, animateScroll as scroll } from "react-scroll";
 
 function Header() {
 
@@ -23,9 +24,30 @@ function Header() {
         <div>
             <div className="headerL">
                 <div className="image">
-                    <img src={logo_noam} alt="Noam Gemstone Logo" />
+                    <Link to="/">
+                        <img src={logo_noam} alt="Noam Gemstone Logo" />
+                    </Link>
                 </div>
                 <div className="options">
+                    <Link to="/">Inicio</Link>
+                    <Linked
+                        to="Categorias"
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={400}
+                    >
+                        Categorias
+                    </Linked>
+                    <Linked
+                        to="services"
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={400}
+                    >
+                        Servicios
+                    </Linked>
                     <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
                 </div>
             </div>
@@ -34,7 +56,7 @@ function Header() {
                     {
                         categories.map((categorie, index) => (
                             <Link id={index} to={`/${categorie.nombre}`}>{categorie.nombre}</Link>
-                           
+
                         ))
                     }
                 </div>

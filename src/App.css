@@ -27,6 +27,9 @@
   text-decoration: none;
   color: #b88e4a;
   margin: 0 1em;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
 }
 
 .headerL .options a i {
@@ -73,12 +76,12 @@
 
 .text-brand h2 {
   font-size: 40px;
-  line-height: 0px;
+  
 }
 
 .text-brand p {
   font-size: 20px;
-  line-height: 0px;
+  
 }
 
 .button-comprar {
@@ -87,9 +90,9 @@
 
 .text-brand .button-comprar a {
   text-decoration: none;
-  background: #b4986b;
+  background: #b88e4a;
   padding: 10px 15px;
-  color: #1a1a1a;
+  color: white;
   font-weight: bold;
   border-radius: 20px;
 
@@ -286,12 +289,14 @@
 }
 
 
+
 .services-item {
   background: #f9f9f9;
   padding: 30px 20px 20px;
   margin: 15px 0;
   position: relative;
   color: #fff;
+  cursor: default;
   overflow: hidden;
   -webkit-transition: background .5s ease-in-out;
   -moz-transition: background .5s ease-in-out;
@@ -302,6 +307,7 @@
   margin: 0 0 10px 0;
   padding: 0;
   font-size: 20px;
+  color: #c89249;
   font-weight: 600;
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -484,6 +490,20 @@ footer {
   .footer-bottom-wrapper {
     font-size: 1.3em
   }
+}
+.subtitle-text{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 70%;
+  margin: 0% 15%;
+}
+.subtitle-text h3{
+  font-size: 17px;
+  margin-top: -4px;
+}
+.services-content-section{
+  margin-top: -29px;
 }
 @media only screen and (max-width: 568px) {
   main {
