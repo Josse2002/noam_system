@@ -1,0 +1,61 @@
+{
+    "departamentos": [
+      {
+        "id": 1,
+        "nombre": "San Salvador"
+      },
+      {
+        "id": 2,
+        "nombre": "La Libertad"
+      },
+      {
+        "id": 3,
+        "nombre": "Santa Ana"
+      },
+      {
+        "id": 4,
+        "nombre": "San Miguel"
+      },
+      {
+        "id": 5,
+        "nombre": "Usulután"
+      },
+      {
+        "id": 6,
+        "nombre": "La Paz"
+      },
+      {
+        "id": 7,
+        "nombre": "Sonsonate"
+      },
+      {
+        "id": 8,
+        "nombre": "Ahuachapán"
+      },
+      {
+        "id": 9,
+        "nombre": "La Unión"
+      },
+      {
+        "id": 10,
+        "nombre": "Morazán"
+      },
+      {
+        "id": 11,
+        "nombre": "Chalatenango"
+      },
+      {
+        "id": 12,
+        "nombre": "Cuscatlán"
+      },
+      {
+        "id": 13,
+        "nombre": "Cabañas"
+      },
+      {
+        "id": 14,
+        "nombre": "San Vicente"
+      }
+    ]
+  }
+  

@@ -1,23 +1,30 @@
 import logo_noam from '../images/logo_noam.png';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { getFirestore } from 'firebase/firestore/lite';
 import { getCategories } from "../services/getCategories";
 import fire from "../firebase/config";
 import { Link as Linked, animateScroll as scroll } from "react-scroll";
+import CheckUser from '../services/checkUser';
+import { getFirestore as getFirestoreLite } from 'firebase/firestore/lite';
+import { getFirestore as getFirestoreFull } from 'firebase/firestore';
 
 function Header() {
-
-    const db = getFirestore(fire); // <-- Esta es la instancia de la base de datos
-    const [categories, setCategories] = useState([]); // <-- Estado que almacene los productos
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.cart.items);
+    const user = useSelector((state) => state.user.user);
+    const db = getFirestoreFull(fire);
+    const dbLite = getFirestoreLite(fire); // <-- Esta es la instancia de la base de datos
+    const [categories, setCategories] = useState([]);
+    const [usuarios, getUsuariosDB] = useState([]); // <-- Estado que almacene los usuarios
+    // <-- Estado que almacene los productos
 
     useEffect(() => {
-
-        getCategories(db, setCategories) // <-- Se manda el estado y la instancia de la base de datos
-
+        getCategories(dbLite, setCategories);
+        CheckUser(db, getUsuariosDB);
     }, []);
 
+    
 
     return (
 
@@ -30,6 +37,7 @@ function Header() {
                 </div>
                 <div className="options">
                     <Link to="/">Inicio</Link>
+
                     <Linked
                         to="Categorias"
                         spy={true}
@@ -48,9 +56,16 @@ function Header() {
                     >
                         Servicios
                     </Linked>
-                    <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+                    <Link to={'/cartView'}><i class="fa-solid fa-cart-shopping"></i>
+                        <span className="badge" >{items.length}</span>
+                    </Link>
+                    {user != null ? <Link to={"/my-profile"}><img className='imageProfileUser' src={usuarios.photo} referrerpolicy="no-referrer" alt="" /></Link> : (
+                        <Link to="/login">Iniciar sesión</Link>
+                    )}
+
                 </div>
             </div>
+
             <div className="categories">
                 <div className='categories-options'>
                     {

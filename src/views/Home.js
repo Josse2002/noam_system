@@ -11,9 +11,10 @@ function Home() {
     <div className="App">
       <Header />
       <BannerHeader />
-      <FProducts />
+      <FProducts tipo="Nuevos productos"/>
       <ServicesPage />
       <ServicesSection />
+      <FProducts tipo="Productos populares"/>
       <Footer/>
     </div>
   );

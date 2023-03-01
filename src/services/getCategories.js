@@ -12,4 +12,5 @@ export const getCategories = async (db, setCategories) => {
       return { ...categories, imageURL  };
     });
     setCategories(await Promise.all(categoriesList));
+    
   }

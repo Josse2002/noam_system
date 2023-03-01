@@ -1,35 +1,76 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from '../views/Home';
-import Categories from '../views/Categories';
 import React, { useState, useEffect } from "react";
 import { getFirestore } from 'firebase/firestore/lite';
-import { getCategories } from "../services/getCategories";
 import fire from "../firebase/config";
+import { getCategories} from '../services/getCategories';
+import { getProducts } from '../services/getProducts';
+import Home from '../views/Home';
+import Categories from '../views/Categories';
+import ProductDetails from '../views/product-details';
+import CartView from '../views/CartView';
+import InicioSesion from '../views/inicioSesion';
+import ProfileView from '../views/profileView';
+//importar un hola mundo
 
 
+import {ProtectedRoute} from './ProtectedRoute';
+import WayPay from '../views/WayPay';
 
-const Router = () => {
+const FIREBASE_CONFIG = getFirestore(fire);
 
-  const db = getFirestore(fire); // <-- Esta es la instancia de la base de datos
-  const [categories, setCategories] = useState([]); // <-- Estado que almacene los productos
+
+function Router(){
+
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  
 
   useEffect(() => {
+    getProducts(FIREBASE_CONFIG, setProducts);
+    getCategories(FIREBASE_CONFIG, setCategories);
+  }, [FIREBASE_CONFIG]);
 
-    getCategories(db, setCategories) // <-- Se manda el estado y la instancia de la base de datos
-    
-  }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {
-          categories.map((categorie, index) => (
-            <Route id={index} path={`/${categorie.nombre}`} element={<Categories categoria={`${categorie.nombre}`} />} />
-          ))
-        }
-      </Routes>
-    </BrowserRouter>
-  )
-}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cartView" element={<CartView />} />
+          <Route path="/login" element={<InicioSesion />} />
+
+          <Route element={<ProtectedRoute redirectTo={"/login"}/>}>
+            <Route path="/my-profile" element={<ProfileView />} />
+          </Route>
+
+
+          <Route element={<ProtectedRoute redirectTo={"/login"}/>}>
+            <Route path="/form-pay" element={<WayPay />} />
+          </Route>
+            
+ 
+          
+          {
+            categories.map((category, index) => (
+              <Route 
+                key={index} 
+                path={`/${category.nombre}`} 
+                element={<Categories categoria={category.nombre} />} 
+              />
+            ))
+          }
+          {
+            products.map((product, index) => (
+              <Route 
+                key={index} 
+                path={`/producto/${product.Nombre}`} 
+                element={<ProductDetails product={product} />} 
+              />
+            ))
+          }
+        </Routes>
+
+      </BrowserRouter>
+
+  );
+};
 
 export default Router;

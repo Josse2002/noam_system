@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.css"
 import Header from "../components/Header";
-import Categorie_banner from "../components/Categorie_banner";
 import Productcategorie from "../components/product-categorie";
+import Categorie_banner from "../components/Categorie_banner";
 
 function Categories({categoria}) {
     return (

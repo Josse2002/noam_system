@@ -1,4 +1,6 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+
 const firebaseConfig = { 
   apiKey: "AIzaSyBFqTG_yHQTGLJoOpcM-t_i3usQZYPrSeE",
   authDomain: "noamgemstone.firebaseapp.com",
@@ -13,3 +15,4 @@ const firebaseConfig = {
 const fire = initializeApp(firebaseConfig);
 
 export default fire;
+export const auth = getAuth(fire);
