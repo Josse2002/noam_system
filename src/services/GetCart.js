@@ -14,27 +14,43 @@ function GetCart() {
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const carrito = useSelector((state) => state.cart.items);
-
+  const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     getProducts(db, setProducts);
     CheckUser(dbFull, getUsuariosDB);
-  }, [db, dbFull]);
-
+    setIsMounted(false);
+  }, [dbFull]);
+  
+  
   useEffect(() => {
-    if (usuarios !== undefined && products !== undefined) {
-      products.map((product) => {
-        for (let i = 0; i < usuarios.cart.length; i++) {
-          if (product.productId === usuarios.cart[i]) {
-            if(carrito.length === 0){
-              setCart((cart) => [...cart, {productId: product.productId, quantity: usuarios.cartNumbers[i], productData: product, cartNumber: i}]);
+    
+    if (isMounted === false) {
+      
+      if (usuarios !== undefined && products !== undefined) {
+        products.map((product) => {
+          if (Object.keys(usuarios.cart).length !== 0 || Object.keys(usuarios.cart).length !== undefined) {
+            for (let i = 0; i < Object.keys(usuarios.cart).length + 1; i++) {
+              if (product.productId === usuarios.cart[i]) {
+                console.log(carrito.length);
+                if(carrito.length === 0){
+                  setCart((cart) => [...cart, {productId: product.productId, quantity: usuarios.cartNumbers[i], productData: product, cartNumber: i}]);
+                }
+              }
             }
+    
+            return null;
+          }else{
+            dispatch(setCartInitial([]));
           }
-        }
+          
+        });
+      }
 
-        return null;
-      });
+    }else{
+
     }
-  }, [usuarios, products, carrito]);
+    setIsMounted(true);
+  }, [usuarios, products, carrito, isMounted]);
 
   if(carrito.length === 0 && cart.length > 0){
     dispatch(setCartInitial(cart));

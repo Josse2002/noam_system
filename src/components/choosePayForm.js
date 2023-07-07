@@ -14,6 +14,7 @@ function ChoosePay() {
     const [usuario, getUsuariosDB] = useState([]);
     const db = getFirestore(fire);
     const priceShipping = 5;
+    console.log(items)
 
     //Verificar numero
 
@@ -200,7 +201,7 @@ function ChoosePay() {
                     <h2>Resumen</h2>
                     <div className='infoSell'>
                         <p> <span> Subtotal: </span></p>
-                        <p> ${items.reduce((a, c) => a + c.Precio * c.quantity, 0).toFixed(2)}</p>
+                        <p> ${items.reduce((a, c) => a + c.productData.Precio * c.quantity, 0).toFixed(2)}</p>
                     </div>
                     <div className='infoSell'>
                         <p> <span> Estimado de envío: </span></p>
@@ -211,7 +212,7 @@ function ChoosePay() {
                     </div>
                     <div className='infoSell'>
                         <p> <span>Total:</span></p>
-                        <p> ${parseFloat(items.reduce((a, c) => a + c.Precio * c.quantity, 0).toFixed(2)) + parseFloat(priceShipping.toFixed(2))}</p>
+                        <p> ${parseFloat(items.reduce((a, c) => a + c.productData.Precio * c.quantity, 0).toFixed(2)) + parseFloat(priceShipping.toFixed(2))}</p>
                     </div>
                 </div>
             </div>

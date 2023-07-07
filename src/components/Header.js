@@ -8,10 +8,10 @@ import { Link as Linked, animateScroll as scroll } from "react-scroll";
 import CheckUser from '../services/checkUser';
 import { getFirestore as getFirestoreLite } from 'firebase/firestore/lite';
 import { getFirestore as getFirestoreFull } from 'firebase/firestore';
+import GetCart from '../services/GetCart';
 
 function Header() {
-    const dispatch = useDispatch();
-    const items = useSelector((state) => state.cart.items);
+    const items = useSelector((state) => state.cart.items) 
     const user = useSelector((state) => state.user.user);
     const db = getFirestoreFull(fire);
     const dbLite = getFirestoreLite(fire); // <-- Esta es la instancia de la base de datos
@@ -19,16 +19,20 @@ function Header() {
     const [usuarios, getUsuariosDB] = useState([]); // <-- Estado que almacene los usuarios
     // <-- Estado que almacene los productos
 
+   
     useEffect(() => {
         getCategories(dbLite, setCategories);
-        CheckUser(db, getUsuariosDB);
-    }, []);
+    }, [dbLite]);
 
-    
+    useEffect(() => {
+        CheckUser(db, getUsuariosDB);
+    }, [db]);
+
 
     return (
 
         <div>
+            <GetCart />
             <div className="headerL">
                 <div className="image">
                     <Link to="/">
@@ -58,6 +62,7 @@ function Header() {
                     </Linked>
                     <Link to={'/cartView'}><i class="fa-solid fa-cart-shopping"></i>
                         <span className="badge" >{items.length}</span>
+            
                     </Link>
                     {user != null ? <Link to={"/my-profile"}><img className='imageProfileUser' src={usuarios.photo} referrerpolicy="no-referrer" alt="" /></Link> : (
                         <Link to="/login">Iniciar sesión</Link>

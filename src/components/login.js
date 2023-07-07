@@ -1,6 +1,5 @@
 import googleLogo from '../images/googleLogo.png';
 import { useDispatch} from 'react-redux';
-import { setUser } from '../slice/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import fire from "../firebase/config";
@@ -14,7 +13,6 @@ function Login(){
     const db = getFirestore(fire);  
     const auth = getAuth();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const provider = new GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
@@ -27,7 +25,9 @@ function Login(){
                 let userObj = {
                     name: user.displayName,
                     email: user.email,
-                    photo: user.photoURL
+                    photo: user.photoURL,
+                    cart: [],
+                    cartNumbers: []
                 }
 
                 const fetchData = async () => {

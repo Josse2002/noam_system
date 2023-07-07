@@ -1362,3 +1362,11 @@ button:disabled {
   color: gray;
   font-size: 12px;
 }
+button.infoMore{
+  border: none;
+  background: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}

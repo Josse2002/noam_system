@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect} from "react";
 import ButtonsBuy from "./buttons-buy";
-import { useSelector, useDispatch } from "react-redux";
+
+// A function that returns the product's name, price, and description.
+// The product parameter is an object with the following properties:
+// name, price, description, and image.
 
 function ProductInfo({ product }) {
   const descriptionRef = useRef(null);
@@ -13,7 +16,7 @@ function ProductInfo({ product }) {
 
   useEffect(() => {
     setBigImage(product.imageURL);
-  }, []);
+  }, [product.imageURL]);
 
 
   const renderSecondaryImages = (images) => {
@@ -83,9 +86,9 @@ function ProductInfo({ product }) {
             </p>
             {
               product.Descripcion.length > 100 && (
-                <a onClick={handleClick}>
+                <button className="infoMore" href="#" onClick={handleClick}>
                   {showFullDescription ? "Ver menos" : "Ver más"}
-                </a>
+                </button>
               )
             }
           
