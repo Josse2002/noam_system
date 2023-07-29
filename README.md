@@ -25,7 +25,7 @@ Después de instalar Node.js, sigue estos pasos:
 cd NoamGemstone
 npm install
 npm start
-
+```
 La aplicación debería estar disponible en http://localhost:3000 en tu navegador web.
 
 ## Demo en Producción
@@ -42,12 +42,13 @@ Por favor, ten en cuenta que la demo en producción puede estar en constante act
 
 ```bash
 git checkout -b nombre-del-branch
-
+```
 Realiza tus cambios y guarda los archivos.
 
 ```bash
 git commit -m "Descripción de los cambios realizados"
 git push origin nombre-del-branch
+```
 Abre un *Pull Request* en GitHub y describe tus cambios detalladamente.
 
 Estaremos encantados de revisar tu contribución y fusionarla en el proyecto principal si es apropiada.
