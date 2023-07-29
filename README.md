@@ -1,4 +1,7 @@
-![Logo noam gemstone](https://github.com/Josse2002/noam_system/blob/main/src/images/logo_noam.png)
+
+<p align="center">
+  <img src="https://github.com/Josse2002/noam_system/blob/main/src/images/logo_noam.png" alt="Descripción de la imagen" width="300px">
+</p>
 # NoamGemstone - Tienda de Joyería
 
 ¡Bienvenido/a al repositorio de NoamGemstone! Esta es una tienda de joyería en línea donde ofrecemos una amplia variedad de hermosas joyas para nuestros clientes. En este repositorio, encontrarás el código fuente de la aplicación web de NoamGemstone.
