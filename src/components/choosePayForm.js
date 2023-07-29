@@ -6,7 +6,8 @@ import fire from "../firebase/config";
 import CheckUser from "../services/checkUser";
 import { getFirestore } from "firebase/firestore";
 import React from "react";
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
+import logo_noam from '../images/logo_noam.png';
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 function ChoosePay() {
@@ -42,7 +43,7 @@ function ChoosePay() {
             purchase_units: [
                 {
                     amount: {
-                        value: "0.01", // $0.01
+                        value: "0.20", // $0.01
                     },
                 },
             ],
@@ -87,7 +88,13 @@ function ChoosePay() {
         }
     }
     return (
+    
         <div className="wayPay">
+            <div className="logo-center">
+                <Link to="/">
+                            <img src={logo_noam} alt="Noam Gemstone Logo" />
+                </Link>
+            </div>
             <div className="return-button">
                 <Link to='/cartView'> <i class="fa-solid fa-chevron-left"></i> Regresar</Link>
             </div>
