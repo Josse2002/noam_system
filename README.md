@@ -14,7 +14,7 @@ Para clonar este proyecto en tu máquina local, sigue estos pasos:
 
 ```bash
 git clone https://github.com/tu_usuario/NoamGemstone.git
-
+```
 ## Ejecutar el Proyecto
 
 Para ejecutar el proyecto en tu entorno local, asegúrate de tener instalado Node.js y npm (Node Package Manager). Puedes descargar la última versión estable de Node.js desde [https://nodejs.org/](https://nodejs.org/).
